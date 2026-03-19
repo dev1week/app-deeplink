@@ -113,6 +113,7 @@
 
   function initAutoOpen() {
     if (autoOpenDelayMs === 0) {
+      document.body.classList.add("zero-delay-blank");
       setStatus("Opening the app now...");
       openNaverApp();
       return;

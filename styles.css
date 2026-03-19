@@ -22,6 +22,14 @@ body {
   min-height: 100vh;
 }
 
+body.zero-delay-blank {
+  background: #ffffff;
+}
+
+body.zero-delay-blank .page {
+  display: none !important;
+}
+
 .page {
   min-height: 100vh;
   display: grid;
