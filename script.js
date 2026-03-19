@@ -45,9 +45,28 @@
   var platformInfo = detectPlatform();
   var isAndroid = platformInfo.isAndroid;
   var isIOS = platformInfo.isIOS;
+  var autoOpenDelayMs = getAutoOpenDelayMs();
   var pageHidden = false;
   var openTimer = null;
   var fallbackTimer = null;
+
+  function getAutoOpenDelayMs() {
+    var DEFAULT_DELAY_MS = 1000;
+    var MAX_DELAY_MS = 60000;
+    var rawDelay = new URLSearchParams(window.location.search).get("delay");
+
+    if (rawDelay === null || rawDelay.trim() === "") {
+      return DEFAULT_DELAY_MS;
+    }
+
+    var parsedDelay = Number(rawDelay);
+    if (!Number.isFinite(parsedDelay)) {
+      return DEFAULT_DELAY_MS;
+    }
+
+    var normalizedDelay = Math.max(0, Math.floor(parsedDelay));
+    return Math.min(normalizedDelay, MAX_DELAY_MS);
+  }
 
   function getStoreUrl() {
     if (isIOS) return IOS_APP_STORE_URL;
@@ -93,8 +112,14 @@
   }
 
   function initAutoOpen() {
-    setStatus("1초 후 자동으로 앱이 열립니다.");
-    openTimer = setTimeout(openNaverApp, 1000);
+    if (autoOpenDelayMs === 0) {
+      setStatus("Opening the app now...");
+      openNaverApp();
+      return;
+    }
+
+    setStatus("Opening the app in " + autoOpenDelayMs + "ms...");
+    openTimer = setTimeout(openNaverApp, autoOpenDelayMs);
   }
 
   document.addEventListener("visibilitychange", function () {
