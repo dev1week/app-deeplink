@@ -93,7 +93,7 @@
 
   function initAutoOpen() {
     setStatus("1초 후 자동으로 앱이 열립니다.");
-    openTimer = setTimeout(openNaverApp, 1000);
+    openTimer = setTimeout(openNaverApp, 5000);
   }
 
   document.addEventListener("visibilitychange", function () {
