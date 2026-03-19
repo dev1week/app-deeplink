@@ -12,9 +12,38 @@
   var openNowBtn = document.getElementById("openNowBtn");
   var installBtn = document.getElementById("installBtn");
 
-  var ua = navigator.userAgent || "";
-  var isAndroid = /Android/i.test(ua);
-  var isIOS = /iPhone|iPad|iPod/i.test(ua);
+  function detectPlatform() {
+    var ua = navigator.userAgent || "";
+    var platform = (navigator.platform || "").toLowerCase();
+    var uaDataPlatform =
+      navigator.userAgentData &&
+      typeof navigator.userAgentData.platform === "string"
+        ? navigator.userAgentData.platform.toLowerCase()
+        : "";
+    var maxTouchPoints = navigator.maxTouchPoints || 0;
+
+    var hasAndroidInUA = /android/i.test(ua);
+    var hasIOSInUA = /iphone|ipad|ipod/i.test(ua);
+    var hasIOSInPlatform = /iphone|ipad|ipod/.test(platform);
+    var hasAndroidInUAData = uaDataPlatform === "android";
+    var hasIOSInUAData = uaDataPlatform === "ios";
+
+    // iPadOS 13+ can report itself as MacIntel in Safari.
+    var isIPadOSDesktopMode = platform === "macintel" && maxTouchPoints > 1;
+
+    var isIOS =
+      hasIOSInUA || hasIOSInPlatform || hasIOSInUAData || isIPadOSDesktopMode;
+    var isAndroid = (hasAndroidInUA || hasAndroidInUAData) && !isIOS;
+
+    return {
+      isAndroid: isAndroid,
+      isIOS: isIOS,
+    };
+  }
+
+  var platformInfo = detectPlatform();
+  var isAndroid = platformInfo.isAndroid;
+  var isIOS = platformInfo.isIOS;
   var pageHidden = false;
   var openTimer = null;
   var fallbackTimer = null;
