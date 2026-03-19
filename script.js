@@ -3,10 +3,11 @@
     "https://apps.apple.com/kr/app/%EB%84%A4%EC%9D%B4%EB%B2%84-naver/id393499958";
   var ANDROID_STORE_URL =
     "https://play.google.com/store/apps/details?id=com.nhn.android.search&hl=ko";
-  var IOS_SCHEME_URL = "naversearchapp://default?version=1";
+  var IOS_SCHEME_URL = "naversearchapp://search?qmenu=music&version=1";
   var ANDROID_INTENT_URL =
-    "intent://default?version=5#Intent;scheme=naversearchapp;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=com.nhn.android.search;end;";
-  var WEB_RELAY_URL = "https://naverapp.naver.com/default/?version=5";
+    "intent://search?qmenu=music&version=1#Intent;scheme=naversearchapp;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=com.nhn.android.search;end;";
+  var WEB_RELAY_URL =
+    "https://naverapp.naver.com/search/?qmenu=music&version=1";
 
   var statusText = document.getElementById("statusText");
   var openNowBtn = document.getElementById("openNowBtn");
