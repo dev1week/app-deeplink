@@ -1,41 +1,47 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>네이버 앱으로 이동 중</title>
+    <title>Redirecting to App Issuance</title>
     <meta
       name="description"
-      content="잠시 후 네이버 앱으로 자동 이동합니다. 앱이 없으면 설치 페이지로 이동합니다."
+      content="You will be redirected to app issuance shortly. If the app is not installed, you will be redirected to the install page."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="page">
       <section class="card" aria-live="polite">
-        <div class="logo-wrap" aria-hidden="true">
-          <span class="logo">N</span>
+        <div class="logo-wrap">
+          <img
+            class="logo-image"
+            src="https://cdn.iconscout.com/icon/free/png-256/free-best-buy-logo-icon-svg-download-png-1580035.png"
+            alt="Best Buy logo"
+            loading="eager"
+            decoding="async"
+          />
         </div>
 
-        <h1 class="title">네이버 앱으로 이동 중입니다</h1>
+        <h1 class="title">Redirecting to App Issuance</h1>
         <p class="desc">
-          잠시만 기다려 주세요.<br />
-          <strong id="statusText">1초 후 자동으로 앱이 열립니다.</strong>
+          Please wait for a moment.<br />
+          <strong>The app will open automatically in 1 second.</strong>
         </p>
 
-        <div class="loader" role="status" aria-label="로딩 중"></div>
+        <div class="loader" role="status" aria-label="Loading"></div>
 
         <div class="actions">
           <button id="openNowBtn" class="btn primary" type="button">
-            지금 열기
+            Open Now
           </button>
           <button id="installBtn" class="btn ghost" type="button">
-            앱 설치하기
+            Install App
           </button>
         </div>
 
         <p class="footnote">
-          자동 이동이 되지 않으면 <strong>지금 열기</strong>를 눌러 주세요.
+          If auto-redirect does not work, press <strong>Open Now</strong>.
         </p>
       </section>
     </main>
