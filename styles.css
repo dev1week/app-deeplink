@@ -1,0 +1,128 @@
+:root {
+  --naver-green: #03c75a;
+  --naver-green-dark: #00b14f;
+  --bg: #f4f6f8;
+  --text: #1f252d;
+  --muted: #677382;
+  --card: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Segoe UI", Roboto, "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at top, #effff5 0%, var(--bg) 48%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.card {
+  width: min(460px, 100%);
+  background: var(--card);
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: 0 10px 35px rgba(21, 30, 42, 0.08);
+  text-align: center;
+}
+
+.logo-wrap {
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--naver-green);
+  color: #fff;
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(22px, 5vw, 28px);
+  line-height: 1.35;
+}
+
+.desc {
+  margin: 12px 0 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.loader {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 3px solid #d7f5e3;
+  border-top-color: var(--naver-green);
+  margin: 0 auto 22px;
+  animation: spin 0.9s linear infinite;
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 12px;
+  min-height: 46px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.14s ease, box-shadow 0.14s ease,
+    background-color 0.2s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn.primary {
+  color: #fff;
+  background: var(--naver-green);
+}
+
+.btn.primary:hover {
+  background: var(--naver-green-dark);
+  box-shadow: 0 8px 16px rgba(3, 199, 90, 0.27);
+}
+
+.btn.ghost {
+  color: var(--naver-green-dark);
+  background: #e8faef;
+}
+
+.btn.ghost:hover {
+  background: #d8f6e5;
+}
+
+.footnote {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: #7b8795;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

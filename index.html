@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>네이버 앱으로 이동 중</title>
+    <meta
+      name="description"
+      content="잠시 후 네이버 앱으로 자동 이동합니다. 앱이 없으면 설치 페이지로 이동합니다."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card" aria-live="polite">
+        <div class="logo-wrap" aria-hidden="true">
+          <span class="logo">N</span>
+        </div>
+
+        <h1 class="title">네이버 앱으로 이동 중입니다</h1>
+        <p class="desc">
+          잠시만 기다려 주세요.<br />
+          <strong id="statusText">1초 후 자동으로 앱이 열립니다.</strong>
+        </p>
+
+        <div class="loader" role="status" aria-label="로딩 중"></div>
+
+        <div class="actions">
+          <button id="openNowBtn" class="btn primary" type="button">
+            지금 열기
+          </button>
+          <button id="installBtn" class="btn ghost" type="button">
+            앱 설치하기
+          </button>
+        </div>
+
+        <p class="footnote">
+          자동 이동이 되지 않으면 <strong>지금 열기</strong>를 눌러 주세요.
+        </p>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
